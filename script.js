@@ -85,5 +85,16 @@ function game(){
         console.log("You : "+playerScore);
         console.log("The A.I. : "+compScore);
     }
-    
+    if(playerScore>compScore){
+        console.log("Congratulations! You win!");
+    }
+    else if(playerScore<compScore){
+        console.log("You lost :(");
+    }
+    else if(playerScore === compScore){
+        console.log("Tough match! It's a tie.");
+    }
+    else{
+        console.log("Something went very wrong.");
+    }
 }
