@@ -44,3 +44,9 @@ function playTheGame(playerSelection, computerSelection){
         return "Something went wrong. We will be back(or not)."
     }
 }
+
+function caseInSensitive(str){
+    str = str.toLowerCase();
+    let firstLetter = str.substring(0,1);
+    return (firstLetter.toUpperCase() + str.substring(1));
+}
