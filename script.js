@@ -11,3 +11,36 @@ function getComputerChoice(){
         return "Scissors";
     }
 }
+
+function playTheGame(playerSelection, computerSelection){
+    if(playerSelection === computerSelection){
+        return "It's a Tie.";
+    }
+    else if(playerSelection === "Rock"){
+        if(computerSelection === "Paper"){
+            return "You lose! Paper beats Rock.";
+        }
+        else if( computerSelection === "Scissors"){
+            return "You win! Rock beats Scissors.";
+        }
+    }
+    else if(playerSelection === "Paper"){
+        if(computerSelection === "Rock"){
+            return "You win! Paper beats Rock.";
+        }
+        else if(computerSelection === "Scissors"){
+            return "You lose! Scissors cut Paper.";
+        }
+    }
+    else if(playerSelection === "Scissors"){
+        if(computerSelection === "Paper"){
+            return "You win! Scissors cut Paper.";
+        }
+        else if(computerSelection === "Rock"){
+            return "You lose! Rock beats Scissors.";
+        }
+    }
+    else{
+        return "Something went wrong. We will be back(or not)."
+    }
+}
