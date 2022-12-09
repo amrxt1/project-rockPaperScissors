@@ -14,34 +14,34 @@ function getComputerChoice(){
 
 function playTheGame(playerSelection, computerSelection){
     if(playerSelection === computerSelection){
-        return "It's a Tie.";
+        console.log("It's a Tie.");
     }
     else if(playerSelection === "Rock"){
         if(computerSelection === "Paper"){
-            return "You lose! Paper beats Rock.";
+            console.log("You lose! Paper beats Rock.");
         }
         else if( computerSelection === "Scissors"){
-            return "You win! Rock beats Scissors.";
+            console.log("You win! Rock beats Scissors.");
         }
     }
     else if(playerSelection === "Paper"){
         if(computerSelection === "Rock"){
-            return "You win! Paper beats Rock.";
+            console.log("You win! Paper beats Rock.");
         }
         else if(computerSelection === "Scissors"){
-            return "You lose! Scissors cut Paper.";
+            console.log("You lose! Scissors cut Paper.");
         }
     }
     else if(playerSelection === "Scissors"){
         if(computerSelection === "Paper"){
-            return "You win! Scissors cut Paper.";
+            console.log("You win! Scissors cut Paper.");
         }
         else if(computerSelection === "Rock"){
-            return "You lose! Rock beats Scissors.";
+            console.log("You lose! Rock beats Scissors.");
         }
     }
     else{
-        return "Something went wrong. We will be back(or not)."
+        console.log("Something went wrong. We will be back(or not).");
     }
 }
 
@@ -49,4 +49,16 @@ function caseInSensitive(str){
     str = str.toLowerCase();
     let firstLetter = str.substring(0,1);
     return (firstLetter.toUpperCase() + str.substring(1));
+}
+
+let playerSelection = "";
+let computerSelection = "";
+
+function game(playerSelection, computerSelection){
+    console.log("This is a game of Rock, Paper and Scissors.");
+    for(let i = 0; i<5 ; i++){
+        playerSelection = caseInSensitive(prompt("Please Enter your choice."));
+        computerSelection = getComputerChoice();
+        playTheGame(playerSelection, computerSelection);
+    }
 }
