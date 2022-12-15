@@ -86,12 +86,7 @@ function score(computerWins){
     const ai = document.querySelector('.ai');
     ai.textContent = `The A.I. : ${compScore}`;
 
-    if(playerScore===5 && compScore === 5){
-        sendComputerChoice("Tough match! It's a tie.");
-        sendPrompt('Please Refresh the page to play again.');
-        gameEnd();
-    }
-    else if(playerScore === 5){
+    if(playerScore === 5){
         sendComputerChoice('');
         sendPrompt("You win! We've got an expert here.");
         gameEnd();
