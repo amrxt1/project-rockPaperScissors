@@ -12,7 +12,7 @@ body{
     gap: 22px;
 }
 
-button{
+.button{
     font-size: 17px;
     border: 2px solid white;
     border-radius: 7px;

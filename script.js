@@ -12,7 +12,10 @@ function getComputerChoice(){
     }
 }
 
-function playTheGame(playerSelection, computerSelection){
+function playTheGame(e){
+    const playerSelection = this.className;
+    const computerSelection = getComputerChoice();
+    console.log("The computer went for "+computerSelection);
     if(playerSelection === computerSelection){
         console.log("It's a Tie.");
         return 0;
@@ -59,13 +62,58 @@ function caseInSensitive(str){
     return (firstLetter.toUpperCase() + str.substring(1));
 }
 
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+buttons.forEach(button => button.addEventListener('click',playTheGame));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let playerSelection = "";
 let computerSelection = "";
 let computerWins = false;
 let playerScore = 0;
 let compScore = 0;
 
-function winner(){
+function game(){
+    console.log("This is a game of Rock, Paper and Scissors.");
+        playerSelection = caseInSensitive(prompt("Please Enter your choice."));
+        computerSelection = getComputerChoice();
+        computerWins = playTheGame(playerSelection, computerSelection);
+        
+        if(computerWins === 0){
+            console.log("You : "+playerScore);
+            console.log("The A.I. : "+compScore);
+        }
+        else if(computerWins){
+            compScore++;
+        }
+        else{
+            playerScore++;
+        }
+        console.log("You : "+playerScore);
+        console.log("The A.I. : "+compScore);
+    
     if(playerScore>compScore){
         console.log("Congratulations! You win!");
     }
