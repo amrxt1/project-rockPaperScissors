@@ -9,6 +9,9 @@ body{
 
 .container{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .prompts,.computerChoice{
@@ -41,4 +44,10 @@ h1{
     color: white;
     text-align: center;
     margin-top: 44px;
+}
+
+.scores{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }

@@ -18,41 +18,41 @@ function playTheGame(e){
     sendComputerChoice("The computer went for "+computerSelection);
     if(playerSelection === computerSelection){
         sendPrompt("It's a Tie.");
-        return 0;
+        score(0);
     }
     else if(playerSelection === "Rock"){
         if(computerSelection === "Paper"){
             sendPrompt("You lose! Paper beats Rock.");
-            return true;
+            score(true);
         }
         else if( computerSelection === "Scissors"){
             sendPrompt("You win! Rock beats Scissors.");
-            return false;
+            score(false);
         }
     }
     else if(playerSelection === "Paper"){
         if(computerSelection === "Rock"){
             sendPrompt("You win! Paper beats Rock.");
-            return false;
+            score(false);
         }
         else if(computerSelection === "Scissors"){
             sendPrompt("You lose! Scissors cut Paper.");
-            return true;
+            score(true);
         }
     }
     else if(playerSelection === "Scissors"){
         if(computerSelection === "Paper"){
             sendPrompt("You win! Scissors cut Paper.");
-            return false;
+            score(false);
         }
         else if(computerSelection === "Rock"){
             sendPrompt("You lose! Rock beats Scissors.");
-            return true;
+            score(true);
         }
     }
     else{
         sendPrompt("Something went wrong. We will be back(or not).");
-        return 0;
+        score(0);
     }
 }
 
@@ -72,6 +72,33 @@ function sendComputerChoice(string){
 }
 
 
+let playerScore = 0;
+let compScore = 0;
+
+function score(computerWins){
+    if (computerWins === 0) return;
+
+    if (computerWins) compScore++;
+    if (!computerWins) playerScore++;
+
+    const player = document.querySelector('.player');
+    player.textContent = `You : ${playerScore}`;
+    const ai = document.querySelector('.ai');
+    ai.textContent = `The A.I. : ${compScore}`;
+
+    if(playerScore===5 && compScore === 5){
+        sendComputerChoice("Tough match! It's a tie.");
+        sendPrompt('Please Refresh the page to play again.')
+    }
+    else if(playerScore === 5){
+        sendComputerChoice('');
+        sendPrompt("You win! We've got an expert here.");
+    }
+    else if(compScore === 5){
+        sendComputerChoice('You lose :(');
+        sendPrompt('Refresh the page to try again.');
+    }
+}
 
 
 
@@ -95,11 +122,6 @@ function sendComputerChoice(string){
 
 
 
-// let playerSelection = "";
-// let computerSelection = "";
-// let computerWins = false;
-// let playerScore = 0;
-// let compScore = 0;
 
 // function game(){
 //     console.log("This is a game of Rock, Paper and Scissors.");
