@@ -88,20 +88,29 @@ function score(computerWins){
 
     if(playerScore===5 && compScore === 5){
         sendComputerChoice("Tough match! It's a tie.");
-        sendPrompt('Please Refresh the page to play again.')
+        sendPrompt('Please Refresh the page to play again.');
+        gameEnd();
     }
     else if(playerScore === 5){
         sendComputerChoice('');
         sendPrompt("You win! We've got an expert here.");
+        gameEnd();
     }
     else if(compScore === 5){
         sendComputerChoice('You lose :(');
         sendPrompt('Refresh the page to try again.');
+        gameEnd();
     }
 }
 
-
-
+function gameEnd(){
+    const pick = document.querySelector('.pick');
+    pick.textContent = '';
+    buttons.forEach(toggleOff);
+}
+function toggleOff(e){
+    e.style.display = 'none';
+}
 
 
 
