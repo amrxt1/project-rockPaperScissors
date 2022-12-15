@@ -1,0 +1,22 @@
+body{
+    height: 100vh;
+    background-color: rgb(18, 18, 22);
+}
+
+
+.container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
+
+button{
+    font-size: 17px;
+    border: 2px solid white;
+    border-radius: 7px;
+    color: white;
+    background-color: rgb(18, 18, 22);
+    padding: 10px;
+}

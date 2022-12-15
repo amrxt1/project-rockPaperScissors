@@ -65,26 +65,7 @@ let computerWins = false;
 let playerScore = 0;
 let compScore = 0;
 
-function game(){
-    console.log("This is a game of Rock, Paper and Scissors.");
-    for(let i = 0; i<5 ; i++){
-        playerSelection = caseInSensitive(prompt("Please Enter your choice."));
-        computerSelection = getComputerChoice();
-        computerWins = playTheGame(playerSelection, computerSelection);
-        if(computerWins === 0){
-            console.log("You : "+playerScore);
-            console.log("The A.I. : "+compScore);
-            continue;
-        }
-        else if(computerWins){
-            compScore++;
-        }
-        else{
-            playerScore++;
-        }
-        console.log("You : "+playerScore);
-        console.log("The A.I. : "+compScore);
-    }
+function winner(){
     if(playerScore>compScore){
         console.log("Congratulations! You win!");
     }
